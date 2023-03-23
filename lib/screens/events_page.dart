@@ -17,6 +17,7 @@ class _ShowObjectsState extends State<ShowObjects> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Color(0xFF181818),
       child: Column(
         children: [
           Row(
@@ -35,7 +36,7 @@ class _ShowObjectsState extends State<ShowObjects> {
                     Text(
                       widget.items.heading,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
@@ -43,7 +44,7 @@ class _ShowObjectsState extends State<ShowObjects> {
                     Text(
                       widget.items.subHeading,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 11,
                       ),
                     ),
@@ -54,7 +55,7 @@ class _ShowObjectsState extends State<ShowObjects> {
                       widget.items.eventDate,
                       textAlign: TextAlign.right,
                       style: TextStyle(
-                        color: Colors.green.shade800,
+                        color: Colors.purpleAccent[100],
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
                       ),

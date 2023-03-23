@@ -3,7 +3,7 @@ import 'package:google_sign_in_firebase_fluttter_app/models/compose_activity_pag
 import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
 import 'package:google_sign_in_firebase_fluttter_app/models/list_activity_item.dart';
 
-//import 'package:eventhq_activity_feed/models/list_activity_item_trial.dart';
+
 
 
 /// Page that displays the "timeline" Stream feed group.
@@ -43,8 +43,6 @@ class _TimelinePageState extends State<TimelinePage> {
   Widget build(BuildContext context) {
     final client = context.feedClient;
     return Scaffold(
-      appBar:
-          AppBar(title: const Text('Timeline'), backgroundColor: Colors.black),
       body: FlatFeedCore(
         feedGroup: _feedGroup,
         userId: client.currentUser?.id,
@@ -68,9 +66,9 @@ class _TimelinePageState extends State<TimelinePage> {
                 flags: _flags,
               );
             },
-            child: ListView.separated(
+            child: ListView.builder(
               itemCount: activities.length,
-              separatorBuilder: (context, index) => const Divider(),
+            //  separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) {
                 bool shouldLoadMore = activities.length - 3 == index;
                 if (shouldLoadMore) {
@@ -85,17 +83,24 @@ class _TimelinePageState extends State<TimelinePage> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute<void>(
-                builder: (context) => const ComposeActivityPage()),
-          );
-        },
-        tooltip: 'Add Activity',
-        child: const Icon(Icons.add),
+      floatingActionButton: Theme(
+        data: ThemeData(
+          accentColor: Colors.purple[900],
+        ),
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                  builder: (context) => const ComposeActivityPage()),
+            );
+          },
+          tooltip: 'Add Activity',
+          child: const Icon(
+              Icons.add,
+            size: 44,
+          ),
+        ),
       ),
     );
   }

@@ -57,7 +57,8 @@ class _CommentsPageState extends State<CommentsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Comments'),backgroundColor: Colors.black,),
+      appBar: AppBar(title: const Text('Comments'),//backgroundColor: Colors.black,
+     ),
       body: Column(
         children: [
           Expanded(

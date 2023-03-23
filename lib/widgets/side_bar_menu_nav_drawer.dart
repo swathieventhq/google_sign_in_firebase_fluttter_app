@@ -69,22 +69,12 @@ class _NavDrawerState extends State<NavDrawer> {
               children: [
                 ListTile(
                   title: Text('Edit Profile', style: TextStyle(fontSize: 22)),
-                  leading: Icon(Icons.mode_edit_outlined,color: Colors.black,),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('Notifications', style: TextStyle(fontSize: 22)),
-                  leading: Icon(Icons.notifications_active_outlined,color: Colors.black,),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('Authentication', style: TextStyle(fontSize: 22)),
-                  leading: Icon(Icons.lock_open_outlined,color: Colors.black,),
+                  leading: Icon(Icons.mode_edit_outlined),
                   onTap: () {},
                 ),
                 ListTile(
                   title: Text('Signout', style: TextStyle(fontSize: 22)),
-                  leading: Icon(Icons.logout,color: Colors.black,),
+                  leading: Icon(Icons.logout),
                   onTap: () {
                     // controller.logout();
                   },
@@ -93,7 +83,7 @@ class _NavDrawerState extends State<NavDrawer> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 400, bottom: 0),
+            padding: EdgeInsets.only(top: 280),
             child: Column(
               children: [
                 Divider(),

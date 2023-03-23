@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_sign_in_firebase_fluttter_app/login_controller.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in_firebase_fluttter_app/screens/splash_screen.dart';
 import 'components/streams_feed.dart';
 
 class LoginPage extends StatelessWidget {
@@ -11,9 +9,10 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login Page'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('Login Page'),
+      // ),
+      backgroundColor: Colors.black,
       body: Center(
         child: Obx(() {
           if (controller.googleAccount.value == null)

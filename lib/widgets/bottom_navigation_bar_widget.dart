@@ -1,4 +1,5 @@
 import 'package:google_sign_in_firebase_fluttter_app/models/dyte.dart';
+import 'package:google_sign_in_firebase_fluttter_app/screens/chat_page.dart';
 import 'package:google_sign_in_firebase_fluttter_app/screens/dyte_meeting_page.dart';
 import 'package:google_sign_in_firebase_fluttter_app/screens/members_page.dart';
 import 'package:google_sign_in_firebase_fluttter_app/screens/timeline_page.dart';
@@ -7,57 +8,99 @@ import 'package:google_sign_in_firebase_fluttter_app/models/events_listView_buil
 import 'package:google_sign_in_firebase_fluttter_app/screens/notifications_page.dart';
 import 'package:google_sign_in_firebase_fluttter_app/widgets/side_bar_menu_nav_drawer.dart';
 import 'package:google_sign_in_firebase_fluttter_app/models/custom_search_delegate.dart';
-
-
+import 'package:google_sign_in_firebase_fluttter_app/screens/groups_page.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationBarWidget> createState() => _BottomNavigationBarWidget();
+  State<BottomNavigationBarWidget> createState() =>
+      _BottomNavigationBarWidget();
 }
 
 class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
+  bool typing = false;
   final screens = [
-  // HomePage(),
+    // HomePage(),
     TimelinePage(),
-   MembersPage(),
-    EventsPage(),
+    MembersPage(),
+    GroupsPage(),
     NotificationsPage(),
-   DyteMeetingPage(),
-
+    EventsPage(),
+    // DyteMeetingPage(),
   ];
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              // method to show the search bar
-              showSearch(
-                  context: context,
-                  // delegate to customize the search bar
-                  delegate: CustomSearchDelegate()
-              );
-            },
-            icon: const Icon(Icons.search),
-          )
-        ],
+        backgroundColor: Colors.black87,
+        //actions: <Widget> [
+// Row(
+//   children: [
+//     Container(
+//       color: Colors.cyanAccent,
+//       padding: EdgeInsets.symmetric(vertical: 90,horizontal: 10),
+//       alignment: Alignment.center,
+//       child: TextField(
+//
+//         // controller: textController, We will declare this later
+//         decoration: InputDecoration(
+//           prefixIcon: Icon(
+//             Icons.arrow_back_ios_new_sharp,
+//             color: Colors.white,),
+//           hintText: "Search",
+//           enabledBorder: OutlineInputBorder(
+//               borderRadius: BorderRadius.circular(25)),
+//           focusedBorder: OutlineInputBorder(
+//               borderRadius: BorderRadius.circular(25),
+//               borderSide: BorderSide(width: 2)),
+//         ),
+//       ),
+//     ),
+//     IconButton(
+//       onPressed: () {
+//         Navigator.push(
+//             context, MaterialPageRoute(builder: (Context) => ChatPage()));
+//       },
+//       icon: Icon(Icons.chat),
+//     ),
+//   ],
+// ),
+
+        // ],
+          // IconButton(
+          //   onPressed: () {
+          //     // method to show the search bar
+          //     showSearch(
+          //         context: context,
+          //         // delegate to customize the search bar
+          //         delegate: CustomSearchDelegate()
+          //     );
+          //   },
+          //   icon: const Icon(Icons.search),
+          // ),
 
 
-        backgroundColor: Colors.black,
-        leading: CircleAvatar(
-          backgroundColor: Colors.grey,
-          child: Builder(
-            builder: (context) {
+
+        // backgroundColor: Colors.black,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            //  backgroundImage: AssetImage('assets/swathi.jpg'),
+            backgroundColor: Colors.grey,
+            child: Builder(builder: (context) {
               return IconButton(
-                icon: Icon(Icons.person,size: 30,color: Colors.black,),
+                icon: Icon(
+                  Icons.person,
+                  size: 20,
+                  color: Colors.black,
+                ),
                 onPressed: () => Scaffold.of(context).openDrawer(),
               );
-            }
+            }),
           ),
         ),
       ),
@@ -73,7 +116,7 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
         },
         iconSize: 35,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.black87,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -81,13 +124,13 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
+            icon: Icon(Icons.groups_rounded),
             label: 'Members',
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.event),
-            label: 'Events',
+            icon: Icon(Icons.group_add),
+            label: 'Groups',
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
@@ -96,8 +139,8 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.video_call),
-            label: 'Call',
+            icon: Icon(Icons.event),
+            label: 'Events',
             backgroundColor: Colors.black,
           ),
         ],

@@ -12,15 +12,23 @@ class StreamFeeds extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return MaterialApp(
-      builder: (context, child) => FeedProvider(
-        bloc: FeedBloc(
-          client: client,
+     return Scaffold(
+       body: MaterialApp(
+         debugShowCheckedModeBanner: false,
+theme: ThemeData.dark().copyWith(
+//  primaryColor:
+  scaffoldBackgroundColor: Colors.black87
+  //Color(0xFF0A0E21),
+),
+        builder: (context, child) => FeedProvider(
+          bloc: FeedBloc(
+            client: client,
+          ),
+          child: child!,
         ),
-        child: child!,
-      ),
-      home: const SelectUserPage(),
-    );
+        home: const SelectUserPage(),
+    ),
+     );
   }
 }
 

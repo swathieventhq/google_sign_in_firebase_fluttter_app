@@ -31,7 +31,7 @@ class _splashScreenState extends State<splashScreen> {
       }else {
         Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) =>LoginPage(),// StreamFeeds(),// BottomNavigationBarWidget(),
+            MaterialPageRoute(builder: (context) =>StreamFeeds(),//LoginPage(), StreamFeeds(),// BottomNavigationBarWidget(),
             ));
       }
     });
@@ -42,7 +42,8 @@ class _splashScreenState extends State<splashScreen> {
     return Scaffold(
       body: Center(
         child: Container(
-          color: Colors.cyan,
+          color: Colors.black,
+        //  color: Colors.cyan,
           child: Center(child: Text('splashscreeen',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 40),)),
         ),
       ),
