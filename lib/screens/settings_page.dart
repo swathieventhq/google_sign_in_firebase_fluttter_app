@@ -1,4 +1,4 @@
-
+import 'package:google_sign_in_firebase_fluttter_app/screens/members_page2.dart';
 import 'package:google_sign_in_firebase_fluttter_app/models/events_listView_builder.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -87,9 +87,10 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Settings'),
+        title: Text('Registration'),
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 0, right: 0),
@@ -356,6 +357,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   children: [
                     FormField(builder: (state){
                   return   Checkbox(
+                    activeColor:  Color(0xffD0BCFF),
                         value: isChecked,
                         onChanged: (value) {
                           isChecked = value!;
@@ -401,7 +403,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           text: 'Privacy Policy',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.blue,
+                              color: Color(0xffD0BCFF),
                               decoration: TextDecoration.underline),
                           recognizer: new TapGestureRecognizer()
                             ..onTap = () => _launchUrl(
@@ -417,7 +419,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           text: 'Event Terms.',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.blue,
+                             color: Color(0xffD0BCFF),
                               decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () => _launchUrl1(
@@ -438,24 +440,58 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.grey.shade600,
                   ),
                 ),
+
                 Padding(
-                  padding: EdgeInsets.only(left: 60, right: 60, top: 20),
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      final isValidForm = _formkey.currentState!.validate();
-                      if (isValidForm) {
-                        myFunction();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => EventsPage()),
-                        );
-                      }
-                    },
-                    child: Text('SUBMIT'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4)),
+                  padding: const EdgeInsets.only(top: 37),
+                  child: SizedBox(
+                    height: 42,
+                    width: 320,
+                    child: ElevatedButton(
+
+                      // onPressed: () async {
+                      //   final isValidForm = _formkey.currentState!.validate();
+                      //   if (isValidForm) {
+                      //     myFunction();
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(builder: (context) => EventsPage()),
+                      //     );
+                      //   }
+                      // },
+                      onPressed: () {
+                        final isValidForm = _formkey.currentState!.validate();
+                        if (isValidForm) {
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MembersPage2(
+                                      firstName:
+                                      firstNameController.text.toString(),
+                                      lastName: lastNameController.text
+                                          .toString(),
+                                      email: emailTextController.text.toString(),
+                                      phone: phoneController.text.toString(),
+                                      companyName:
+                                      companyNameController.text.toString(),
+                                      jobRole: jobRoleSelectedValue.toString(),
+                                      jobFunction: jobFunctionSelectedValue.toString(),
+                                      linkedInURL: linkedInController.text.toString(),
+                                    )
+                            ),
+                                (route) => false,
+                          );
+                        };
+                      },
+
+
+  child: Text('Save and Continue'),
+                      style: ElevatedButton.styleFrom(
+
+                          backgroundColor: Color(0xff7C2FEB),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4)),
+
+                      ),
                     ),
                   ),
                 ),
@@ -480,25 +516,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 }
 
-/*final isValidForm = formkey.currentState!.validate();
-                      if (isValidForm) {
-                         Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  HomePage(
-                                    firstName:
-                                    firstNameController.text.toString(),
-                                    lastName: lastNameController.text.toString(),
-                                    email: emailTextController.text.toString(),
-                                    phone: phoneController.text.toString(),
-                                    companyName:
-                                    companyNameController.text.toString(),
-                                  )
-                          ),
-                              (route) => false,
-                        );
-                        }
-                      }, */
+
 //  }
 
 //     final isValidForm = formkey.currentState!.validate();

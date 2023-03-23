@@ -15,7 +15,7 @@ class DemoUser {
 const demoUsers = [
   DemoUser(
     user: User(
-      id: 'swathigowda',
+      id: 'Swathi',
       data: {
         'handle': '@swathigowda',
         'first_name': 'Swathi',
@@ -26,7 +26,7 @@ const demoUsers = [
       },
     ),
     token: Token(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3dhdGhpZ293ZGEifQ.4s0gpDZnTIpsF4vd9XPw67CjfTYdIp_IGXefYTd5PsI'),
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiXCJhc2Rhc2RcIiJ9.mh9cSO6EZA-95QJGssrOPfShUThNUfNiJUfp6COGr44'),
   ),
   DemoUser(
     user: User(

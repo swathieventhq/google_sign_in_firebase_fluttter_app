@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/screens/comments_page.dart';
 import '../models/demo_user.dart';
 import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
+import 'package:google_sign_in_firebase_fluttter_app/widgets/MoreHorizantalBottomSheet.dart';
 
 /// UI widget to display an activity/post.
 ///
@@ -33,8 +34,11 @@ class _ListActivityItemState extends State<ListActivityItem> {
     final ownReactions = widget.activity.ownReactions;
     final isLikedByUser = (ownReactions?['like']?.length ?? 0) > 0;
     return Card(
+      elevation: 6,
+      color: Color(0xFF151318),
+    //  color: Colors.black26,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.fromLTRB(12, 14, 12, 14),
         child: Column(
           children: [
             Padding(
@@ -70,36 +74,47 @@ class _ListActivityItemState extends State<ListActivityItem> {
                     Expanded(
                       flex: 1,
                       child: Container(
-                        child: PopupMenuButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0)),
-                          itemBuilder: (context) => [
-                            PopupMenuItem(
-                              child: Text('Report Post'),
-                            ),
-                            PopupMenuItem(
-                              child: Row(
-                                children: [
-                                  Text('Follow Post'),
-                                  SizedBox(
-                                    width: 34,
-                                  ),
-                                  Switch(
-                                    // This bool value toggles the switch.
-                                    value: isSwitched,
-                                    activeColor: Colors.red,
-                                    onChanged: (bool value) {
-                                      // This is called when the user toggles the switch.
-                                      setState(() {
-                                        isSwitched = value;
-                                      });
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                        child: IconButton(
+                          onPressed: () {
+                            showBottomSheet(
+                              context: context,
+                              builder: (context) => MoreHorizantalBottomSheet(),
+                            );
+                          },
+                          icon: Icon(
+                            Icons.more_horiz,
+                          ),
                         ),
+                        // child: PopupMenuButton(
+                        //   shape: RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.circular(8.0)),
+                        //   itemBuilder: (context) => [
+                        //     PopupMenuItem(
+                        //       child: Text('Report Post'),
+                        //     ),
+                        //     PopupMenuItem(
+                        //       child: Row(
+                        //         children: [
+                        //           Text('Follow Post'),
+                        //           SizedBox(
+                        //             width: 34,
+                        //           ),
+                        //           Switch(
+                        //             // This bool value toggles the switch.
+                        //             value: isSwitched,
+                        //             activeColor: Colors.red,
+                        //             onChanged: (bool value) {
+                        //               // This is called when the user toggles the switch.
+                        //               setState(() {
+                        //                 isSwitched = value;
+                        //               });
+                        //             },
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                       ),
                     ),
                   ],
@@ -118,18 +133,52 @@ class _ListActivityItemState extends State<ListActivityItem> {
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Image.network(attachments[0].url),
                   ),
-                Divider(height: 4),
                 Row(
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10),
                       child: Row(
                         children: [
-                          if (reactionCounts?['like'] != null)
-                            Text(
-                              '${reactionCounts?['like']}',
-                              style: Theme.of(context).textTheme.caption,
-                            )
+
+
+                          reactionCounts?['like'] == null
+                              ? Text("")
+                              : reactionCounts?['like'] == 1
+                              ? Text(
+                            '${reactionCounts?['like']} like',
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white70,
+                            ),
+                          )
+                             : Text(
+                            '${reactionCounts?['like']} likes',
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white70,
+                            ),
+                          ),
+
+                          // if (reactionCounts?['like'] != null)
+                          //   Text(
+                          //     '${reactionCounts?['like']}',
+                          //     //  style: Theme.of(context).textTheme.caption,
+                          //     style: TextStyle(
+                          //       fontWeight: FontWeight.normal,
+                          //       color: Colors.white70,
+                          //     ),
+                          //   ),
+                          // SizedBox(
+                          //   width: 3,
+                          // ),
+                          // Container(
+                          //     child: const Text(
+                          //   "likes",
+                          //   style: TextStyle(
+                          //     fontWeight: FontWeight.normal,
+                          //     color: Colors.white70,
+                          //   ),
+                          // )),
                         ],
                       ),
                     ),
@@ -139,33 +188,69 @@ class _ListActivityItemState extends State<ListActivityItem> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            if (reactionCounts?['comment'] != null)
-                              Container(
-                                child: Text(
-                                  '${reactionCounts?['comment']}',
-                                  style: Theme.of(context).textTheme.caption,
-                                ),
+                            reactionCounts?['comment'] == null
+                                ?  Text("")
+                                : reactionCounts?['comment'] == 1
+                                    ? Text(
+                                        '${reactionCounts?['comment']} comment',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.white70,
+                                        ),
+                                      )
+                                    :  Text(
+                              '${reactionCounts?['comment']} comments',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white70,
                               ),
-                            SizedBox(
-                              width: 3,
-                            ),
-                            Container(child: const Text("comments")),
+                            )
+
+
+                            // if (reactionCounts?['comment'] != null)
+                            //   Container(
+                            //     child: Text(
+                            //       '${reactionCounts?['comment']}',
+                            //       // style: Theme.of(context).textTheme.caption,
+                            //       style: TextStyle(
+                            //         fontWeight: FontWeight.normal,
+                            //         color: Colors.white70,
+                            //       ),
+                            //     ),
+                            //   ),
+                            // SizedBox(
+                            //   width: 3,
+                            // ),
+                            // Container(
+                            //   child: const Text(
+                            //     "Comments",
+                            //     style: TextStyle(
+                            //       fontWeight: FontWeight.normal,
+                            //       color: Colors.white70,
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-                Divider(height: 4),
+                Divider(
+                  height: 5,
+                  color: Colors.white,
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Row(
+                        Column(
                           children: [
                             Container(
-                              width: 28,
+                              height: 30,
+                              width: 30,
                               child: IconButton(
                                 iconSize: 16,
                                 onPressed: () {
@@ -191,11 +276,12 @@ class _ListActivityItemState extends State<ListActivityItem> {
                             Container(child: const Text("Like")),
                           ],
                         ),
-                        const SizedBox(width: 30),
-                        Row(
+
+                        Column(
                           children: [
                             Container(
-                              width: 28,
+                              height: 30,
+                              width: 30,
                               child: IconButton(
                                 iconSize: 16,
                                 onPressed: () =>
@@ -203,13 +289,39 @@ class _ListActivityItemState extends State<ListActivityItem> {
                                 icon: const Icon(Icons.mode_comment_outlined),
                               ),
                             ),
-                            Text("comment"),
+                            Text("Comment"),
                           ],
                         ),
-                        //   SizedBox(width:70),
-                        //    Expanded(
-                        //
-                        //    ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 30,
+                              width: 40,
+                              child: IconButton(
+                                iconSize: 16,
+                                onPressed: () =>
+                                    _navigateToCommentPage(context),
+                                icon: const Icon(Icons.share),
+                              ),
+                            ),
+                            Text("Share"),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 30,
+                              width: 30,
+                              child: IconButton(
+                                iconSize: 16,
+                                onPressed: () =>
+                                    _navigateToCommentPage(context),
+                                icon: const Icon(Icons.save_alt_outlined),
+                              ),
+                            ),
+                            Text("Save"),
+                          ],
+                        ),
                       ],
                     ),
                   ],

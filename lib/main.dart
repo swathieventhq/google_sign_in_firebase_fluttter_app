@@ -4,20 +4,19 @@ import 'package:get/get.dart';
 import 'package:google_sign_in_firebase_fluttter_app/screens/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner:false,
-      home:
-      splashScreen(),
+      return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFF151318),
+        primaryColor: Color(0xFF151318),
+      ),
+      debugShowCheckedModeBanner: false,
+      home: splashScreen(),
     );
   }
 }
-
-
-

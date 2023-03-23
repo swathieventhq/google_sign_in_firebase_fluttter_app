@@ -14,7 +14,7 @@ class MembersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Members'),backgroundColor: Colors.black,),
+      // appBar: AppBar(title: const Text('Members'),backgroundColor: Colors.black,),
       body: ListView(
         children: demoUsers
             .where((element) {
@@ -26,3 +26,9 @@ class MembersPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
