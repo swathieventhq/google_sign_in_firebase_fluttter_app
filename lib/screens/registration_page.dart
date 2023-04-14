@@ -8,13 +8,14 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-
 class SettingsPage extends StatefulWidget {
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+
+  void _doSomething(){}
   final storage = new FlutterSecureStorage();
   Future myFunction() async {
     var obj = {
@@ -51,7 +52,6 @@ class _SettingsPageState extends State<SettingsPage> {
   String? jobFunctionSelectedValue = '';
   String? jobRoleSelectedValue = '';
 
-
   bool? isChecked = false;
   bool? checkboxValue = false;
 
@@ -87,8 +87,12 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(1),
+          child: Divider(thickness: 1.0,color: Color(0xFFFFFFFF),),
+        ),
         backgroundColor: Colors.black,
         title: Text('Registration'),
       ),
@@ -104,7 +108,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text(
                   'First Name',
                   style: TextStyle(
-                    color: Colors.grey.shade600,
+                    color: Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -121,7 +125,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                     decoration: InputDecoration(
                       hintText: 'First Name',
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Color(0xffffffff),
+                      ),
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -132,7 +139,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text(
                   'Last Name',
                   style: TextStyle(
-                    color: Colors.grey.shade600,
+                    color: Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -150,7 +157,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     decoration: InputDecoration(
                       hintText: 'Last Name',
                       border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Color(0xffffffff),
+                      ),
                     ),
                   ),
                 ),
@@ -160,16 +170,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text(
                   'LinkedIn URL',
                   style: TextStyle(
-                    color: Colors.grey.shade600,
+                    color: Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                   ),
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                Text(
-                  'Eg : https://www.linkedin.com/in/saasinsider',
-                  style: TextStyle(color: Colors.blueGrey, fontSize: 12),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 0.0, top: 8.0),
@@ -186,6 +189,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       }
                     },
                     decoration: InputDecoration(
+
                       hintText: 'LinkedIn URL',
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.business),
@@ -193,12 +197,19 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ),
                 SizedBox(
+                  height: 7,
+                ),
+                Text(
+                  'Eg : https://www.linkedin.com/in/saasinsider',
+                  style: TextStyle(color: Color(0xff969696), fontSize: 12),
+                ),
+                SizedBox(
                   height: 18,
                 ),
                 Text(
                   'Company Name',
                   style: TextStyle(
-                    color: Colors.grey.shade600,
+                    color: Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -216,7 +227,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     decoration: InputDecoration(
                       hintText: 'Company Name',
                       border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.business),
+                      prefixIcon: Icon(
+                        Icons.business,
+                        color: Color(0xffffffff),
+                      ),
                     ),
                   ),
                 ),
@@ -226,7 +240,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text(
                   'Email',
                   style: TextStyle(
-                    color: Colors.grey.shade600,
+                    color: Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -236,7 +250,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     controller: emailTextController,
                     decoration: InputDecoration(
                       hintText: 'Email',
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Color(0xffffffff),
+                      ),
                       border: OutlineInputBorder(),
                     ),
                     validator: (email) =>
@@ -251,7 +268,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text(
                   'Phone Number',
                   style: TextStyle(
-                    color: Colors.grey.shade600,
+                    color: Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -278,13 +295,17 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text(
                   'Job Function',
                   style: TextStyle(
-                    color: Colors.grey.shade600,
+                    color: Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 0.0, top: 8.0),
                   child: DropdownButtonFormField(
+                    icon: Icon(
+                      Icons.shopping_bag_sharp,
+                      color: Color(0xffffffff),
+                    ),
                     validator: (value) {
                       if (value == null) {
                         return 'Job Function is required';
@@ -317,7 +338,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text(
                   'Job Role',
                   style: TextStyle(
-                    color: Colors.grey.shade600,
+                    color: Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -354,17 +375,21 @@ class _SettingsPageState extends State<SettingsPage> {
                   height: 20,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    FormField(builder: (state){
-                  return   Checkbox(
-                    activeColor:  Color(0xffD0BCFF),
-                        value: isChecked,
-                        onChanged: (value) {
-                          isChecked = value!;
-                          state.didChange(value);
+                    FormField(
+                      builder: (state) {
+                        return Checkbox(
+                          activeColor: Color(0xffD0BCFF),
+                          value: isChecked,
+                          onChanged: (value) {
+                            // isChecked = value!;
+                            // state.didChange(value);
+                            isChecked = value ?? false;
+                            state.didChange(value);
                           },
-                  );
-                    },
+                        );
+                      },
                       validator: (value) {
                         if (!isChecked!) {
                           // return Fluttertoast.showToast(
@@ -382,14 +407,14 @@ class _SettingsPageState extends State<SettingsPage> {
                       },
                     ),
 
-                  // Checkbox(
-                  //           value: isChecked,
-                  //           onChanged: (bool? value){
-                  //              setState(() {
-                  //             isChecked = value!;
-                  //              });
-                  //              },
-                  //   ),
+                    // Checkbox(
+                    //           value: isChecked,
+                    //           onChanged: (bool? value){
+                    //              setState(() {
+                    //             isChecked = value!;
+                    //              });
+                    //              },
+                    //   ),
                     RichText(
                         text: TextSpan(
                       children: [
@@ -419,7 +444,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           text: 'Event Terms.',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                             color: Color(0xffD0BCFF),
+                              color: Color(0xffD0BCFF),
                               decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () => _launchUrl1(
@@ -440,14 +465,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.grey.shade600,
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.only(top: 37),
                   child: SizedBox(
                     height: 42,
                     width: 320,
                     child: ElevatedButton(
-
                       // onPressed: () async {
                       //   final isValidForm = _formkey.currentState!.validate();
                       //   if (isValidForm) {
@@ -458,39 +481,41 @@ class _SettingsPageState extends State<SettingsPage> {
                       //     );
                       //   }
                       // },
+
                       onPressed: () {
                         final isValidForm = _formkey.currentState!.validate();
                         if (isValidForm) {
+                          myFunction();
+                          isChecked! ? _doSomething : null;
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    MembersPage2(
+                                builder: (context) => MembersPage2(
                                       firstName:
-                                      firstNameController.text.toString(),
-                                      lastName: lastNameController.text
-                                          .toString(),
-                                      email: emailTextController.text.toString(),
+                                          firstNameController.text.toString(),
+                                      lastName:
+                                          lastNameController.text.toString(),
+                                      email:
+                                          emailTextController.text.toString(),
                                       phone: phoneController.text.toString(),
                                       companyName:
-                                      companyNameController.text.toString(),
+                                          companyNameController.text.toString(),
                                       jobRole: jobRoleSelectedValue.toString(),
-                                      jobFunction: jobFunctionSelectedValue.toString(),
-                                      linkedInURL: linkedInController.text.toString(),
-                                    )
-                            ),
-                                (route) => false,
+                                      jobFunction:
+                                          jobFunctionSelectedValue.toString(),
+                                      linkedInURL:
+                                          linkedInController.text.toString(),
+                                )),
+                            (route) => false,
                           );
-                        };
+                        }
+                        ;
                       },
 
-
-  child: Text('Save and Continue'),
+                      child: Text('Save and Continue'),
                       style: ElevatedButton.styleFrom(
-
-                          backgroundColor: Color(0xff7C2FEB),
+                        backgroundColor: Color(0xff7C2FEB),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
-
                       ),
                     ),
                   ),
@@ -515,7 +540,6 @@ class _SettingsPageState extends State<SettingsPage> {
     }
   }
 }
-
 
 //  }
 

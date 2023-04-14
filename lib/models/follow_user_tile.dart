@@ -71,7 +71,7 @@ class _FollowUserTileState extends State<FollowUserTile> {
             follow();
           }
         },
-        child: _isFollowing ? const Text('disconnect',style: TextStyle( color: Color(0xFFD0BCFF),),) : const Text('+ connect',style: TextStyle( color: Color(0xFFD0BCFF),),),
+        child: _isFollowing ? const Text('disconnect') : const Text('+ connect',style: TextStyle( color: Colors.purpleAccent,),),
       ),
     );
   }
