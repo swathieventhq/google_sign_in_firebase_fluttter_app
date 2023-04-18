@@ -94,42 +94,39 @@ class ProfileWidget extends StatelessWidget {
 
   Widget buildCoverImage() {
     final image = AssetImage(imagePath);
-    return Stack(
-      children: [
-        Ink.image(
-          image: image,
-          fit: BoxFit.cover,
-          width: double.infinity,
-          height: coverHeight,
-          child: InkWell(
-            onTap: onClicked,
-          ),
+    return Stack(children: [
+      Ink.image(
+        image: image,
+        fit: BoxFit.cover,
+        width: double.infinity,
+        height: coverHeight,
+        child: InkWell(
+          onTap: onClicked,
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              buildEditCameraIcon(Color(0XFFD0BCFF)),
-            ],
-          ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            buildEditCameraIcon(Color(0XFFD0BCFF)),
+          ],
         ),
-      ]
-    );
+      ),
+    ]);
   }
 
   Widget buildEditCameraIcon(Color color) => buildCircle(
         all: 3.0,
         color: Color(0XFFFFFFFF),
         child: buildCircle(
-          color: color,
-          all: 4.0,
-          child: Icon(
-            Icons.camera_alt_outlined,
-            size: 15,
-            color: Color(0XFFFFFFFF),
-          ),
-        ),
+            color: color,
+            all: 4.0,
+            child: Icon(
+              Icons.camera_alt_outlined,
+              size: 15,
+              color: Color(0XFFFFFFFF),
+            )),
       );
 
   Widget buildCircle({

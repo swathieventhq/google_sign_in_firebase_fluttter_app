@@ -2,20 +2,22 @@ import 'package:google_sign_in_firebase_fluttter_app/screens/members_page2.dart'
 import 'package:google_sign_in_firebase_fluttter_app/models/events_listView_builder.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in_firebase_fluttter_app/utilities/profile_view2.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'dart:math';
 
-class SettingsPage extends StatefulWidget {
+class RegistrationPage extends StatefulWidget {
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  State<RegistrationPage> createState() => _RegistrationPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
-
-  void _doSomething(){}
+class _RegistrationPageState extends State<RegistrationPage> {
+  void _doSomething() {}
   final storage = new FlutterSecureStorage();
   Future myFunction() async {
     var obj = {
@@ -29,7 +31,7 @@ class _SettingsPageState extends State<SettingsPage> {
       "jobRol": jobRoleSelectedValue,
     };
     await storage.write(key: 'saasInsiderSettings', value: obj.toString());
-    final person = await storage.read(key: 'saasInsiderSettings');
+    final UserData = await storage.read(key: 'saasInsiderSettings');
     print(obj);
   }
 
@@ -87,11 +89,14 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(1),
-          child: Divider(thickness: 1.0,color: Color(0xFFFFFFFF),),
+          child: Divider(
+            thickness: 1.0,
+            color: Color(0xFFFFFFFF),
+          ),
         ),
         backgroundColor: Colors.black,
         title: Text('Registration'),
@@ -189,7 +194,6 @@ resizeToAvoidBottomInset: false,
                       }
                     },
                     decoration: InputDecoration(
-
                       hintText: 'LinkedIn URL',
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.business),
@@ -432,7 +436,8 @@ resizeToAvoidBottomInset: false,
                               decoration: TextDecoration.underline),
                           recognizer: new TapGestureRecognizer()
                             ..onTap = () => _launchUrl(
-                                'https://www.saasinsider.com/privacy-policy'),
+                                  'https://www.saasinsider.com/privacy-policy',
+                                ),
                         ),
                         TextSpan(
                             text: ' \n and ',
@@ -489,7 +494,7 @@ resizeToAvoidBottomInset: false,
                           isChecked! ? _doSomething : null;
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                                builder: (context) => MembersPage2(
+                                builder: (context) => ProfileView(
                                       firstName:
                                           firstNameController.text.toString(),
                                       lastName:
@@ -504,11 +509,28 @@ resizeToAvoidBottomInset: false,
                                           jobFunctionSelectedValue.toString(),
                                       linkedInURL:
                                           linkedInController.text.toString(),
-                                )),
+                                    )),
                             (route) => false,
                           );
+                          //           MembersPage2(
+                          //             firstName:
+                          //                 firstNameController.text.toString(),
+                          //             lastName:
+                          //                 lastNameController.text.toString(),
+                          //             email:
+                          //                 emailTextController.text.toString(),
+                          //             phone: phoneController.text.toString(),
+                          //             companyName:
+                          //                 companyNameController.text.toString(),
+                          //             jobRole: jobRoleSelectedValue.toString(),
+                          //             jobFunction:
+                          //                 jobFunctionSelectedValue.toString(),
+                          //             linkedInURL:
+                          //                 linkedInController.text.toString(),
+                          //       )),
+                          //   (route) => false,
+                          // );
                         }
-                        ;
                       },
 
                       child: Text('Save and Continue'),

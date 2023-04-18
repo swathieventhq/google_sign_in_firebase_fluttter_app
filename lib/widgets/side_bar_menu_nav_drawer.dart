@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/screens/profile_page.dart';
-import 'package:google_sign_in_firebase_fluttter_app/screens/settings_page.dart';
+import 'package:google_sign_in_firebase_fluttter_app/screens/registration_page.dart';
 import 'package:google_sign_in_firebase_fluttter_app/login_controller.dart';
 import 'package:get/get.dart';
 
@@ -83,7 +83,7 @@ class _NavDrawerState extends State<NavDrawer> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 280),
+          //  padding: EdgeInsets.only(top: 280),
             child: Column(
               children: [
                 Divider(),
@@ -95,7 +95,7 @@ class _NavDrawerState extends State<NavDrawer> {
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) => SettingsPage(),
+                            (context) => RegistrationPage(),
                       )  ,
                     );
                   },

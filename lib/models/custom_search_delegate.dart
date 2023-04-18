@@ -3,15 +3,20 @@ import 'package:flutter/material.dart';
 class CustomSearchDelegate extends SearchDelegate {
 // Demo list to show querying
   List<String> searchTerms = [
-    "Apple",
-    "Banana",
-    "Mango",
-    "Pear",
-    "Watermelons",
-    "Blueberries",
-    "Pineapples",
-    "Strawberries"
+    "Swathi Gowda",
+    "Harish Somasundar",
+    "Darshan",
+    "Akash",
+    "Sanjay",
+    "Adhi",
+    "Hari pragadish",
+    "Chameli Kuduva",
+    "Noorul Faheem",
+    "Swathi H C",
+    "Prajaktha",
   ];
+
+//  List<Members> members = allMembers;
 
 // first overwrite to
 // clear the search text
@@ -42,9 +47,9 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     List<String> matchQuery = [];
-    for (var fruit in searchTerms) {
-      if (fruit.toLowerCase().contains(query.toLowerCase())) {
-        matchQuery.add(fruit);
+    for (var members in searchTerms) {
+      if (members.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(members);
       }
     }
     return ListView.builder(
@@ -63,9 +68,9 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     List<String> matchQuery = [];
-    for (var fruit in searchTerms) {
-      if (fruit.toLowerCase().contains(query.toLowerCase())) {
-        matchQuery.add(fruit);
+    for (var members in searchTerms) {
+      if (members.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(members);
       }
     }
     return ListView.builder(
@@ -79,3 +84,5 @@ class CustomSearchDelegate extends SearchDelegate {
     );
   }
 }
+
+

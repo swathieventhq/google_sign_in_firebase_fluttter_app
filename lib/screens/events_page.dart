@@ -55,7 +55,7 @@ class _ShowObjectsState extends State<ShowObjects> {
                       widget.items.eventDate,
                       textAlign: TextAlign.right,
                       style: TextStyle(
-                        color: Colors.purpleAccent[100],
+                        color: Color(0xffD0BCFF),
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
                       ),

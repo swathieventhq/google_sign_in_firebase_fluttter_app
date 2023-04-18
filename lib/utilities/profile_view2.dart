@@ -8,7 +8,25 @@ import 'package:google_sign_in_firebase_fluttter_app/utilities/profile_widget.da
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProfileView extends StatefulWidget {
-  const ProfileView({Key? key}) : super(key: key);
+ ProfileView({
+   required this.firstName,
+   required this.lastName,
+   required this.email,
+   required this.phone,
+   required this.companyName,
+   required this.linkedInURL,
+   required this.jobFunction,
+   required this.jobRole,
+});
+
+ String firstName;
+ String lastName;
+ String email;
+ String phone;
+ String companyName;
+ String linkedInURL;
+ String jobFunction;
+ String jobRole;
 
   @override
   State<ProfileView> createState() => _ProfileViewState();
@@ -29,7 +47,142 @@ class _ProfileViewState extends State<ProfileView> {
             onClicked: () async {},
             profileImagePath: user.profileImagePath,
           ),
-          buildName(user),
+          Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 6.0),
+                        child: Row(
+                          children: [
+                            Text(widget.firstName, style: TextStyle(fontSize: 16.0)),
+                            SizedBox(
+                              width:4,
+                            ),
+                            Text(widget.lastName, style: TextStyle(fontSize: 16.0)),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text("@" + user.userName,
+                                style: TextStyle(fontSize: 16.0)),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 6.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.idBadge,
+                              size: 12.0,
+                            ),
+                            SizedBox(
+                              width: 6,
+                            ),
+                            Text(widget.jobFunction,
+                                style: TextStyle(fontSize: 14.0)),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text('@', style: TextStyle(fontSize: 14.0)),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(widget.companyName,
+                                style: TextStyle(fontSize: 14.0)),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 6.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            // Container(
+                            //     height: 14,
+                            //     width: 25,
+                            //     child: Image(
+                            //       image: AssetImage(
+                            //         'assets/linkedin.png',
+                            //       ),
+                            //     )),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              widget.linkedInURL,
+                              style: TextStyle(
+                                  fontSize: 14.0, color: Color(0xffD0BCFF)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 6.0),
+                        child: Row(
+                          children: [
+                            Text("296", style: TextStyle(fontSize: 12.0)),
+                            SizedBox(
+                              width: 2.0,
+                            ),
+                            Text(
+                              "Following ",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: Color(0XFFBFBFBF),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text("300", style: TextStyle(fontSize: 12.0)),
+                            SizedBox(
+                              width: 2.0,
+                            ),
+                            Text(
+                              "Followers",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: Color(0XFFBFBFBF),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => EditProfilePage(),
+                                ));
+                          },
+                          icon: Icon(Icons.edit),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          // buildName(user),
           Padding(
             // padding: const EdgeInsets.only(left: 16.0, bottom: 8.0),
             padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 4.0),

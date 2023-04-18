@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/screens/comments_page.dart';
 import '../models/demo_user.dart';
 import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
-import 'package:google_sign_in_firebase_fluttter_app/widgets/MoreHorizantalBottomSheet.dart';
+import 'package:google_sign_in_firebase_fluttter_app/widgets/MoreHorizantalBottomSheetFeedsPage.dart';
 
 /// UI widget to display an activity/post.
 ///
@@ -76,11 +76,14 @@ class _ListActivityItemState extends State<ListActivityItem> {
                       child: Container(
                         child: IconButton(
                           onPressed: () {
-                            showBottomSheet(
-                              context: context,
-                              builder: (context) => MoreHorizantalBottomSheet(),
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (context) => MoreHorizantalBottomSheet(),
+                              isDismissible: true,
+                              enableDrag: true,
+                              isScrollControlled: false,
                             );
-                          },
+                            },
                           icon: Icon(
                             Icons.more_horiz,
                           ),
