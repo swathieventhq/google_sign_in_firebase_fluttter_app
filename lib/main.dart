@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in_firebase_fluttter_app/login_page.dart';
+import 'package:google_sign_in_firebase_fluttter_app/unauthenticated/login_page.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in_firebase_fluttter_app/screens/splash_screen.dart';
+import 'package:google_sign_in_firebase_fluttter_app/unauthenticated/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF151318),
       ),
       debugShowCheckedModeBanner: false,
-      home: splashScreen(),
+      home: SplashScreen(),
     );
   }
 }
