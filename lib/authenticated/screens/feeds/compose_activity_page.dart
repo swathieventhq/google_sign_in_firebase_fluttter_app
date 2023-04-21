@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../constants.dart';
+
 /// A page to compose a new [Activity]/post.
 ///
 /// - feed: "user"
@@ -49,7 +51,7 @@ class _ComposeActivityPageState extends State<ComposeActivityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Compose'),
+        title: const Text('Compose',style: TextStyle(color: kAppBarTitleColor)),
         backgroundColor: Colors.black,
         actions: [
           Padding(
@@ -58,10 +60,10 @@ class _ComposeActivityPageState extends State<ComposeActivityPage> {
               label: const Text(
                 'Post',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               onPressed: post,
             ),
           ),

@@ -5,8 +5,11 @@ class ChatsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0XFF151318),
+      ),
+      body: Center(
         child: Text(
           'Coming Soon',
           style: TextStyle(

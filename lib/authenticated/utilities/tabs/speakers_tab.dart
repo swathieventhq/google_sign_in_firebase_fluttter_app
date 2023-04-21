@@ -14,46 +14,21 @@ class _SpeakersTabState extends State<SpeakersTab> {
           Card(
             elevation: 2,
             color: Color(0xff151318),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 21.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Text("About"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0,top: 19.0),
-                    child: Text(
-                      "hdsjbsbkvsvksnvsnvsnvsvsvmlslkslns\nbsdskvnksnvkjsnvjnvjvhbjhbhbhbhbxahbhcbschsbdcjhdsb\ngvcjacjhbhcjhcvagjvjcvajcajhajhbakcakcdscftwvfsgjhsbcjsbcjs\njdshbcjshdbcjshbj\n",
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Card(
-            elevation: 2,
-            color: Color(0xff151318),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
-                  child: Text("Work History"),
+                  padding: const EdgeInsets.only(left: 10.0,top: 8.0),
+                  child: Text("Speakers"),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 16.0,bottom: 10.0,left: 16.0),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        child: Image(
-                          image: AssetImage("assets/amazon.png"),
-                        ),
+                      CircleAvatar(
+                        backgroundImage:
+                         AssetImage("assets/iron_man.png"),
                       ),
                       SizedBox(
                         width: 8.0,
@@ -62,24 +37,214 @@ class _SpeakersTabState extends State<SpeakersTab> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "R and D Engineer",
+                            "Robert John Downey Jr",
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            "Amazon . Internship",
+                            "Iron Man",
                             style: TextStyle(
                               fontSize: 12,
+                            ),
+                          ),
+                          // Text(
+                          //   "May, 2022 - june, 20222.2 months",
+                          //   style: TextStyle(
+                          //     fontSize: 12,
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0,bottom: 10.0,left: 16.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/thor.png"),
+                      ),
+                      SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Chris Hemsworth",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            "May, 2022 - june, 20222.2 months",
+                            "Thor The Thunder God",
                             style: TextStyle(
                               fontSize: 12,
                             ),
                           ),
+                          // Text(
+                          //   "May, 2022 - june, 20222.2 months",
+                          //   style: TextStyle(
+                          //     fontSize: 12,
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0,bottom: 10.0,left: 16.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/dr_strange.png"),
+                      ),
+                      SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Scott Derrickson ",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "Doctor Strange",
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
+                          ),
+                          // Text(
+                          //   "May, 2022 - june, 20222.2 months",
+                          //   style: TextStyle(
+                          //     fontSize: 12,
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0,bottom: 10.0,left: 16.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/hulk.png"),
+                      ),
+                      SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Mark Alan Ruffalo ",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "Hulk",
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
+                          ),
+                          // Text(
+                          //   "May, 2022 - june, 20222.2 months",
+                          //   style: TextStyle(
+                          //     fontSize: 12,
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0,bottom: 10.0,left: 16.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/black_widow.png"),
+                      ),
+                      SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Scarlett Ingrid Johansson",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "Black Widow",
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
+                          ),
+                          // Text(
+                          //   "May, 2022 - june, 20222.2 months",
+                          //   style: TextStyle(
+                          //     fontSize: 12,
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0,bottom: 10.0,left: 16.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/loki.png"),
+                      ),
+                      SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Tom Hiddleston",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "Loki",
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
+                          ),
+                          // Text(
+                          //   "May, 2022 - june, 20222.2 months",
+                          //   style: TextStyle(
+                          //     fontSize: 12,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ],
@@ -88,84 +253,84 @@ class _SpeakersTabState extends State<SpeakersTab> {
               ],
             ),
           ),
-          Card(
-            elevation: 2,
-            color: Color(0xff151318),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 21.0 ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left:10.0, bottom: 14),
-                    child: Text("Contact"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left:16.0,bottom: 14),
-                    child: Row(
-                      children: [
-                        Container(
-                            height: 30,
-                            width: 30,
-                            child: Image(
-                              image: AssetImage(
-                                'assets/linkedin.png',
-                              ),
-                            )),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "https://www.linkedin.com/in/saasinsider",
-                          style: TextStyle(color: Color(0xffffffff)),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left:16.0,bottom: 14),
-                    child: Row(
-                      children: [
-                        Container(
-                            height: 30,
-                            width: 30,
-                            child: Icon(
-                              Icons.phone,
-                            )),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "+91 6363731676",
-                          style: TextStyle(color: Color(0xffffffff)),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left:16.0,bottom: 14),
-                    child: Row(
-                      children: [
-                        Container(
-                            height: 30,
-                            width: 30,
-                            child: Icon(
-                              Icons.mail,
-                            )),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          " swathi@eventhq.io",
-                          style: TextStyle(color: Color(0xffffffff)),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // Card(
+          //   elevation: 2,
+          //   color: Color(0xff151318),
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(top: 21.0 ),
+          //     child: Column(
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       children: [
+          //         Padding(
+          //           padding: const EdgeInsets.only(left:10.0, bottom: 14),
+          //           child: Text("Contact"),
+          //         ),
+          //         Padding(
+          //           padding: const EdgeInsets.only(left:16.0,bottom: 14),
+          //           child: Row(
+          //             children: [
+          //               Container(
+          //                   height: 30,
+          //                   width: 30,
+          //                   child: Image(
+          //                     image: AssetImage(
+          //                       'assets/linkedin.png',
+          //                     ),
+          //                   )),
+          //               SizedBox(
+          //                 height: 10,
+          //               ),
+          //               Text(
+          //                 "https://www.linkedin.com/in/saasinsider",
+          //                 style: TextStyle(color: Color(0xffffffff)),
+          //               ),
+          //             ],
+          //           ),
+          //         ),
+          //         Padding(
+          //           padding: const EdgeInsets.only(left:16.0,bottom: 14),
+          //           child: Row(
+          //             children: [
+          //               Container(
+          //                   height: 30,
+          //                   width: 30,
+          //                   child: Icon(
+          //                     Icons.phone,
+          //                   )),
+          //               SizedBox(
+          //                 height: 10,
+          //               ),
+          //               Text(
+          //                 "+91 6363731676",
+          //                 style: TextStyle(color: Color(0xffffffff)),
+          //               ),
+          //             ],
+          //           ),
+          //         ),
+          //         Padding(
+          //           padding: const EdgeInsets.only(left:16.0,bottom: 14),
+          //           child: Row(
+          //             children: [
+          //               Container(
+          //                   height: 30,
+          //                   width: 30,
+          //                   child: Icon(
+          //                     Icons.mail,
+          //                   )),
+          //               SizedBox(
+          //                 height: 10,
+          //               ),
+          //               Text(
+          //                 " swathi@eventhq.io",
+          //                 style: TextStyle(color: Color(0xffffffff)),
+          //               ),
+          //             ],
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

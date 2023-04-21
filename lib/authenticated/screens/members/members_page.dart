@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_navigation_bar_widget.dart';
 import 'package:url_launcher/link.dart';
 
 
@@ -42,149 +43,165 @@ class _MembersPageState extends State<MembersPage> {
             return Card(
               color: Color(0xFF151318),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.person),
-                      SizedBox(
-                        width: 10,
-                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(Icons.person),
+                          SizedBox(
+                            width: 10,
+                          ),
 
-                      Text(
-                        widget.firstName,
-                        // dummyObject[0],
-                        //   " First Name: ${firstName} Last Name: ${lastName} ",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
+                          Text(
+                            widget.firstName,
+                            // dummyObject[0],
+                            //   " First Name: ${firstName} Last Name: ${lastName} ",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            widget.lastName,
+                            //   dummyObject[1],
+                            //   " First Name: ${firstName} Last Name: ${lastName} ",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Link(
+                            target: LinkTarget.blank,
+                            uri: Uri.parse('https://www.saasinsider.com/'),
+                            builder: (context, followlink) => IconButton(
+                              onPressed: followlink,
+                              icon: Icon(Icons.web),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 0.0),
+                        child: Row(
+                          children: [
+                            Icon(Icons.mail),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              widget.email,
+                              // "Email:  ${email}",
+                              //   dummyObject[2],
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        widget.lastName,
-                        //   dummyObject[1],
-                        //   " First Name: ${firstName} Last Name: ${lastName} ",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 3.0),
+                        child: Row(
+                          children: [
+                            Icon(Icons.phone),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              widget.phone,
+                              //   "Phone:  ${phone}" ,
+                              //  dummyObject[3],
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      Link(
-                        target: LinkTarget.blank,
-                        uri: Uri.parse('https://www.saasinsider.com/'),
-                        builder: (context, followlink) => IconButton(
-                          onPressed: followlink,
-                          icon: Icon(Icons.web),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 3.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.shopping_bag),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              widget.jobFunction,
+                              // "Job Role:  ${jobRole}",
+                              //  dummyObject[4],
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "@",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              widget.companyName,
+                              //   "Job Function:  ${jobFunction} @ Company Name: , ${companyName}" ,
+                              // dummyObject[6],
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 3.0),
+                        child: Text(
+                          widget.jobRole,
+                          // "Job Role:  ${jobRole}",
+                          // dummyObject[7],
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 0.0),
-                    child: Row(
-                      children: [
-                        Icon(Icons.mail),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          widget.email,
-                          // "Email:  ${email}",
-                          //   dummyObject[2],
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Color(0XFF7C2FEB),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 3.0),
-                    child: Row(
-                      children: [
-                        Icon(Icons.phone),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          widget.phone,
-                          //   "Phone:  ${phone}" ,
-                          //  dummyObject[3],
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 3.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(Icons.shopping_bag),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          widget.jobFunction,
-                          // "Job Role:  ${jobRole}",
-                          //  dummyObject[4],
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "@",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          widget.companyName,
-                          //   "Job Function:  ${jobFunction} @ Company Name: , ${companyName}" ,
-                          // dummyObject[6],
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 3.0),
-                    child: Text(
-                      widget.jobRole,
-                      // "Job Role:  ${jobRole}",
-                      // dummyObject[7],
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomNavigationBarWidget()));
+                          },
+                          child: Text('Go Back',style: TextStyle(color: Color(0XFFFFFFFF)),)),
+                    ],
+                  )
                 ],
               ),
             );
           },
-
-    ),
+         ),
        );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/events/Upcoming_events.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/events/past_events.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/events_object_list.dart';
+import 'package:google_sign_in_firebase_fluttter_app/constants.dart';
 
 class EventsPage extends StatefulWidget {
   const EventsPage({Key? key}) : super(key: key);
@@ -20,9 +21,9 @@ class _EventsPageState extends State<EventsPage> {
           children: [
             TabBar(
               indicatorSize: TabBarIndicatorSize.label,
-              labelColor: Color(0xffD0BCFF),
-              unselectedLabelColor: Color(0xffCAC4D0),
-              indicatorColor: Color(0xffD0BCFF),
+              labelColor:kSecondaryColor,
+              unselectedLabelColor: kUnselectedLabelColor,
+              indicatorColor: kSecondaryColor,
               tabs: [
                 Tab(
                   text: "Upcoming Events",

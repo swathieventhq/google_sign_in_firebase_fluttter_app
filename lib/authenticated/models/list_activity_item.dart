@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/feeds/comments_page.dart';
+import 'package:google_sign_in_firebase_fluttter_app/constants.dart';
 import '../screens/user/demo_user.dart';
 import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
-import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/MoreHorizantalBottomSheetFeedsPage.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/more_horizantal_bottom_sheet_feeds_page.dart';
 
 /// UI widget to display an activity/post.
 ///
@@ -35,8 +36,8 @@ class _ListActivityItemState extends State<ListActivityItem> {
     final isLikedByUser = (ownReactions?['like']?.length ?? 0) > 0;
     return Card(
       elevation: 6,
-      color: Color(0xFF151318),
-    //  color: Colors.black26,
+      color: kCardColor,
+      //  color: Colors.black26,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(12, 14, 12, 14),
         child: Column(
@@ -57,15 +58,23 @@ class _ListActivityItemState extends State<ListActivityItem> {
                                     NetworkImage(actor.profileImage),
                               ),
                             ),
-                            Text(actor.fullName),
+                            Text(actor.fullName,
+                                style: TextStyle(color: kFeedUsernameColor,fontSize: 16.0,fontWeight: FontWeight.w500)),
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
                                 actor.handle,
+                                // style: TextStyle(
+                                //   color: kFeedUserHandleColor,
+                                //     overflow: TextOverflow.ellipsis,
+                                //   maxLines: 1,
+                                //   softWrap: true,
+                                // ),
                                 style: Theme.of(context).textTheme.caption,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                                 softWrap: true,
+                               // selectionColor: kFeedUserHandleColor,
                               ),
                             ),
                           ],
@@ -77,15 +86,16 @@ class _ListActivityItemState extends State<ListActivityItem> {
                         child: IconButton(
                           onPressed: () {
                             showModalBottomSheet(
-                                context: context,
-                                builder: (context) => MoreHorizantalBottomSheet(),
+                              context: context,
+                              builder: (context) => MoreHorizantalBottomSheet(),
                               isDismissible: true,
                               enableDrag: true,
                               isScrollControlled: false,
                             );
-                            },
+                          },
                           icon: Icon(
                             Icons.more_horiz,
+                            color: kMoreHorizColor,
                           ),
                         ),
                         // child: PopupMenuButton(
@@ -129,7 +139,7 @@ class _ListActivityItemState extends State<ListActivityItem> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Expanded(child: Text('${widget.activity.object}')),
+                  child: Expanded(child: Text('${widget.activity.object}',style: TextStyle(color: kFeedLabelColor,fontSize: 14.0)),),
                 ),
                 if (attachments != null && attachments.isNotEmpty)
                   Padding(
@@ -139,28 +149,27 @@ class _ListActivityItemState extends State<ListActivityItem> {
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      padding:
+                          const EdgeInsets.only(top: 10, bottom: 10, left: 8.0),
                       child: Row(
                         children: [
-
-
                           reactionCounts?['like'] == null
                               ? Text("")
                               : reactionCounts?['like'] == 1
-                              ? Text(
-                            '${reactionCounts?['like']} like',
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white70,
-                            ),
-                          )
-                             : Text(
-                            '${reactionCounts?['like']} likes',
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white70,
-                            ),
-                          ),
+                                  ? Text(
+                                      '${reactionCounts?['like']} like',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        color: kFeedLikeCommentCount,
+                                      ),
+                                    )
+                                  : Text(
+                                      '${reactionCounts?['like']} likes',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        color: kFeedLikeCommentCount,
+                                      ),
+                                    ),
 
                           // if (reactionCounts?['like'] != null)
                           //   Text(
@@ -187,28 +196,30 @@ class _ListActivityItemState extends State<ListActivityItem> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10, bottom: 10),
+                        padding: const EdgeInsets.only(
+                          top: 10,
+                          bottom: 10,
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             reactionCounts?['comment'] == null
-                                ?  Text("")
+                                ? Text("")
                                 : reactionCounts?['comment'] == 1
                                     ? Text(
                                         '${reactionCounts?['comment']} comment',
                                         style: TextStyle(
                                           fontWeight: FontWeight.normal,
-                                          color: Colors.white70,
+                                          color: kFeedLikeCommentCount,
                                         ),
                                       )
-                                    :  Text(
-                              '${reactionCounts?['comment']} comments',
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.white70,
-                              ),
-                            )
-
+                                    : Text(
+                                        '${reactionCounts?['comment']} comments',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          color: kFeedLikeCommentCount,
+                                        ),
+                                      )
 
                             // if (reactionCounts?['comment'] != null)
                             //   Container(
@@ -241,7 +252,8 @@ class _ListActivityItemState extends State<ListActivityItem> {
                 ),
                 Divider(
                   height: 5,
-                  color: Colors.white,
+                  color: kFeedsDividerColor,
+                  thickness: 1.0,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -279,7 +291,6 @@ class _ListActivityItemState extends State<ListActivityItem> {
                             Container(child: const Text("Like")),
                           ],
                         ),
-
                         Column(
                           children: [
                             Container(

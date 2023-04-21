@@ -60,8 +60,9 @@ class _NavDrawerState extends State<NavDrawer> {
               ),
             ),
             currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.asset(user.coverImagePath),
+              radius: 30.0,
+              backgroundImage: AssetImage(
+                user.coverImagePath,
               ),
             ),
             decoration: BoxDecoration(

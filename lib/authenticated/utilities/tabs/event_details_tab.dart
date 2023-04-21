@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/events_seeall_list.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/events/events_listview_builder.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/events/events_seeall.dart';
 import '../speaker_view.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/events_object_list.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/events/Upcoming_events.dart';
@@ -101,13 +103,18 @@ class _EventDetailsTabState extends State<EventDetailsTab> {
                           child:
                           Text("See all", style: TextStyle(color:Color(0xffD0BCFF),)),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>  ListView.builder(
-                              itemCount: ListOfObjects.items.length,
-                              itemBuilder: (context, index) {
-                                return UpcomingEvents(
-                                  items: ListOfObjects.items[index],
-                                );
-                              },
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>  Scaffold(
+                              appBar: AppBar(
+                                backgroundColor: Color(0XFF151318),
+                              ),
+                              body: ListView.builder(
+                                itemCount: ListOfObjects.items.length,
+                                itemBuilder: (context, index) {
+                                  return UpcomingEvents(
+                                    items: ListOfObjects.items[index],
+                                  );
+                                },
+                              ),
                             ),));
                           },
                           style: TextButton.styleFrom(
@@ -119,7 +126,8 @@ class _EventDetailsTabState extends State<EventDetailsTab> {
                       ],
                     ),
                   ),
-                // EventsStaticData(),
+                  SeeAllEvents(),
+                  SeeAllEvents(),
                 ],
               ),
             ),

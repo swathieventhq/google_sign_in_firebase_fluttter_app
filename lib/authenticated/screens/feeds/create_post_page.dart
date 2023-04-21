@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/bottom_sheet_create_post.dart';
 
+import '../../../constants.dart';
+
 class CreatePostPage extends StatefulWidget {
   const CreatePostPage({Key? key}) : super(key: key);
 
@@ -46,9 +48,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
                 padding: const EdgeInsets.only(left: 200.0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0XFF535353)),
+                      backgroundColor: kPostButtonDisabledColor),
                   onPressed: () {},
-                  child: Text('Post',style: TextStyle(fontSize: 14),),
+                  child: Text('Post',style: TextStyle(fontSize: 14,color: kPostButtonTextDisabledColor),),
                 ),
               ),
             ],
@@ -129,7 +131,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                     border: InputBorder.none,
                     hintText:
                         'What\'s happening? what do you wanna talk about?',
-                    hintStyle: TextStyle(fontSize: 14),
+                    hintStyle: TextStyle(fontSize: 14,color: kCreatePostTextAndIconsColor),
                   ),
                 ),
                 Column(
@@ -158,28 +160,28 @@ class _CreatePostPageState extends State<CreatePostPage> {
                           onPressed: () {},
                           icon: Icon(
                             Icons.image,
-                            color: Color(0XFFBEBEBE),
+                            color: kCreatePostTextAndIconsColor,
                           ),
                         ),
                         IconButton(
                           onPressed: () {},
                           icon: Icon(
                             Icons.video_camera_back_rounded,
-                            color: Color(0XFFBEBEBE),
+                            color: kCreatePostTextAndIconsColor,
                           ),
                         ),
                         IconButton(
                           onPressed: () {},
                           icon: Icon(
                             Icons.calendar_month_rounded,
-                            color: Color(0XFFBEBEBE),
+                            color: kCreatePostTextAndIconsColor,
                           ),
                         ),
                         Container(
                           child: IconButton(
                             icon: Icon(
                               Icons.more_horiz_rounded,
-                              color: Color(0XFFBEBEBE),
+                              color: kCreatePostTextAndIconsColor,
                             ),
                             onPressed: () {
                               showModalBottomSheet(

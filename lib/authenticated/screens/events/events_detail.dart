@@ -11,6 +11,8 @@ class EventDetail extends StatefulWidget {
 }
 
 class _EventDetailState extends State<EventDetail> {
+
+  bool attend = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,7 +120,7 @@ class _EventDetailState extends State<EventDetail> {
                             SizedBox(
                               width: 14.0,
                             ),
-                            Text(event.attendees,
+                            Text(event.registrants,
                                 style: TextStyle(
                                     color: Color(0XFFE1E1E1), fontSize: 14.0)),
                           ],
@@ -131,6 +133,9 @@ class _EventDetailState extends State<EventDetail> {
                             Expanded(
                               child: ElevatedButton(
                                 onPressed: () {
+                                  setState(() {
+                                    attend = true;
+                                  });
                                   showModalBottomSheet(
                                     isDismissible: true,
                                     enableDrag: true,
@@ -154,10 +159,15 @@ class _EventDetailState extends State<EventDetail> {
                               width: 12.0,
                             ),
                             Expanded(
-                              child: ElevatedButton(
-                                onPressed: () {},
+                              child: OutlinedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    attend = false;
+                                  });
+                                },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xff7C2FEB),
+                                //  backgroundColor: Colors.grey,
+                                  side: BorderSide(color: Color(0XFF332F3F)),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5)),
                                 ),

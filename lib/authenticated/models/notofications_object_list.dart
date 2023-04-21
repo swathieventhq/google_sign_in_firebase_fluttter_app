@@ -18,8 +18,8 @@ class NotificationsObjectList {
 class ListOfNoticationsObjects {
   static List notifications = [
     NotificationsObjectList(
-      logo: 'assets/swathic.jpg',
-      userName: 'Swathi Gowda : has started following you. ',
+      logo: 'assets/Darshan.jpg',
+      userName: 'Dharshan Seenivasan : has started following you. ',
       time: '15m ',
      // content: 'In Person',
     ),
@@ -60,8 +60,8 @@ class ListOfNoticationsObjects {
      // content: 'In Person',
     ),
     NotificationsObjectList(
-      logo: 'assets/red.png',
-      userName: 'Nithya Kumar : Commented on your post.',
+      logo: 'assets/Darshan.jpg',
+      userName: 'Dharshan Seenivasan : Commented on your post.',
       time: '1w',
     //  content: 'In Person',
     ),

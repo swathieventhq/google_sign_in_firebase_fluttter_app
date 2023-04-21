@@ -24,6 +24,9 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0XFF151318),
+        ),
       //  resizeToAvoidBottomInset: false,
         // appBar: AppBar(
         //   bottom: const PreferredSize(

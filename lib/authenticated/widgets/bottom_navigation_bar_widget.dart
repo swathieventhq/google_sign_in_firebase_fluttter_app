@@ -14,6 +14,7 @@ import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/notif
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/notifications/notifications_page.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/user/user_preferences.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/side_bar_menu_nav_drawer.dart';
+import 'package:google_sign_in_firebase_fluttter_app/constants.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   @override
@@ -39,8 +40,7 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
     GroupsPage(),
     NotificationsListViewBuilderPage(),
     EventsPage(),
-    // EventsPage(),
-     MembersPage2(),
+    MembersPage2(),
 
     //  DyteMeetingPage(),
   ];
@@ -50,11 +50,12 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
     return Scaffold(
       drawer: NavDrawer(imagePath: ''),
       appBar: AppBar(
+        backgroundColor: kAppBarColor,
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(1),
           child: Divider(
             thickness: 1.0,
-            color: Color(0xFFFFFFFF),
+            color: kAppBarDividerColor,
           ),
         ),
         title: GestureDetector(
@@ -72,7 +73,7 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
               width: double.infinity,
               height: 31,
               decoration: BoxDecoration(
-                color: Color(0xff514C5F),
+                color: kSearchBarColor,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Padding(
@@ -85,7 +86,7 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
                       Icon(
                         Icons.search,
                         size: 18,
-                        color: Color(0xffCAC4D0),
+                        color: kSearchBarTextColor,
                       ),
                       SizedBox(
                         width: 6,
@@ -93,50 +94,16 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
                       Text(
                         "Search",
                         style:
-                            TextStyle(color: Color(0xffCAC4D0), fontSize: 14),
+                            TextStyle(color: kSearchBarTextColor, fontSize: 14),
                       ),
                     ],
                   ),
                 ),
               ),
-              // child: TextField(
-              //   decoration: InputDecoration(
-              //       filled: true,
-              //       fillColor: Color(0xff514C5F),
-              //       prefixIcon: const Icon(Icons.search),
-              //       hintText: 'Search...',
-              //
-              //       // border: InputBorder.none,
-              //       border: OutlineInputBorder(
-              //         borderRadius: BorderRadius.circular(12),
-              //         borderSide: const BorderSide(color: Colors.blue),
-              //       )
-              //   ),
-              // ),
             ),
           ),
         ),
         actions: [
-          // IconButton(
-          //   onPressed: () {
-          //
-          //     // method to show the search bar
-          //     // showSearch(
-          //     //     context: context,
-          //     //     // delegate to customize the search bar
-          //     //     delegate: CustomSearchDelegate());
-          //
-          //
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(
-          //         builder: (context) => SearchPage(),
-          //       ),
-          //     );
-          //
-          //   },
-          //   icon: const Icon(Icons.search),
-          // ),
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: IconButton(
@@ -153,31 +120,27 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
             ),
           ),
         ],
-        backgroundColor: Color(0xff000000),
         leading: Padding(
           padding: const EdgeInsets.only(left: 16.0),
-          child: CircleAvatar(
-            backgroundColor: Color(0xff514C5F),
+          child: Container(
             child: Builder(builder: (context) {
               return GestureDetector(
                 onTap: () => Scaffold.of(context).openDrawer(),
-                child: ClipOval(
-                  child: Material(
-                      color: Colors.transparent,
-                      child: Image.asset(
+                child: CircleAvatar(
+                  radius: 30.0,
+                  backgroundImage: AssetImage(
                     user.coverImagePath,
-                    fit: BoxFit.cover,
-                  )),
+                  ),
                 ),
               );
             }),
           ),
         ),
-      ),
+        ),
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Color(0xffCAC4D0),
-        unselectedItemColor: Color(0xff7A7A7A),
+        selectedItemColor: kBottomNavigationSelectedItemColor,
+        unselectedItemColor: kBottomNavigationUnselectedItemColor,
         currentIndex: currentIndex,
         onTap: (index) {
           setState(() {
@@ -186,7 +149,7 @@ class _BottomNavigationBarWidget extends State<BottomNavigationBarWidget> {
         },
         iconSize: 35,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
+        backgroundColor: kBottomNavigationBgColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(

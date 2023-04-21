@@ -11,6 +11,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/profile/registration_page.dart';
 
+import '../../../constants.dart';
+
 
 
 class EditProfilePage extends StatefulWidget {
@@ -103,10 +105,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
       appBar: AppBar(
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(1),
-          child: Divider(thickness: 1.0,color: Color(0xFFFFFFFF),),
+          child: Divider(thickness: 1.0,color: kAppBarDividerColor),
         ),
         backgroundColor: Colors.black,
-        title: Text('Edit Profile'),
+        title: Text('Edit Profile',style: TextStyle(color: kAppBarTitleColor) ),
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 0, right: 0),
@@ -138,6 +140,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     },
                     decoration: InputDecoration(
                       hintText: 'First Name',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       prefixIcon: Icon(
                         Icons.person,
                         color: Color(0xffffffff),
@@ -169,6 +172,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Last Name',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(
                         Icons.person,
@@ -204,6 +208,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     decoration: InputDecoration(
 
                       hintText: 'LinkedIn URL',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.business),
                     ),
@@ -239,6 +244,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Company Name',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(
                         Icons.business,
@@ -437,7 +443,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
                       child: Text('Save'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff7C2FEB),
+                        backgroundColor: kPrimaryColor,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
                       ),

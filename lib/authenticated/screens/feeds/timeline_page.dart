@@ -3,6 +3,8 @@ import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/feeds
 import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/list_activity_item.dart';
 
+import '../../../constants.dart';
+
 
 
 
@@ -43,6 +45,7 @@ class _TimelinePageState extends State<TimelinePage> {
   Widget build(BuildContext context) {
     final client = context.feedClient;
     return Scaffold(
+      backgroundColor: kScaffoldColor,
       body: FlatFeedCore(
         feedGroup: _feedGroup,
         userId: client.currentUser?.id,

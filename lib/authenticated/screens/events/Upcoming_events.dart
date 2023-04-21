@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/events_object_list.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/events/event_details_page.dart';
-import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/MoreHorizantalBottomSheetFeedsPage.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/more_horizantal_bottom_sheet_feeds_page.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/bottom_sheet_events_page.dart';
+import 'package:google_sign_in_firebase_fluttter_app/constants.dart';
 
 class UpcomingEvents extends StatefulWidget {
   UpcomingEvents({required this.items});
@@ -21,7 +22,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
         Navigator.push(context, MaterialPageRoute(builder: (context) => EventDetailsPage() ),);
       },
       child: Card(
-        color: Color(0xFF151318),
+        color: kCardColor,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -61,7 +62,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                                 children: [
                                   Icon(
                                     Icons.calendar_month_rounded,
-                                    color: Color(0XFFE1E1E1),
+                                    color: kEventsDateTimeColor,
                                     size: 14.0,
                                   ),
                                   SizedBox(width: 4.0,),
@@ -69,7 +70,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                                     widget.items.eventDate,
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      color: Color(0XFFE1E1E1),
+                                      color: kEventsTypeHostColor,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 14,
                                     ),
@@ -91,7 +92,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                                     widget.items.eventType,
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      color: Color(0XFF7A7A7A),
+                                      color: kEventsTypeHostColor,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 14.0,
                                     ),
@@ -101,7 +102,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                                     widget.items.eventHost,
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      color: Color(0XFF7A7A7A),
+                                      color: kEventsTypeHostColor,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 14.0,
                                     ),

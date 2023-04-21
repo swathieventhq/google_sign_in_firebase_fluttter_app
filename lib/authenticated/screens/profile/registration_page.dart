@@ -13,6 +13,8 @@ import 'package:email_validator/email_validator.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:math';
 
+import '../../../constants.dart';
+
 class RegistrationPage extends StatefulWidget {
   @override
   State<RegistrationPage> createState() => _RegistrationPageState();
@@ -92,17 +94,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kRegistrationBackgroundColor,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(1),
           child: Divider(
             thickness: 1.0,
-            color: Color(0xFFFFFFFF),
+            color: kAppBarDividerColor,
           ),
         ),
-        backgroundColor: Colors.black,
-        title: Text('Registration'),
+backgroundColor: kAppBarColor,
+        title: Text('Registration',style: TextStyle(color: kAppBarTitleColor) ),
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 0, right: 0),
@@ -133,6 +136,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     },
                     decoration: InputDecoration(
                       hintText: 'First Name',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       prefixIcon: Icon(
                         Icons.person,
                         color: Color(0xffffffff),
@@ -164,6 +168,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Last Name',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(
                         Icons.person,
@@ -198,6 +203,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     },
                     decoration: InputDecoration(
                       hintText: 'LinkedIn URL',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.business),
                     ),
@@ -233,6 +239,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Company Name',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(
                         Icons.business,
@@ -257,6 +264,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     controller: emailTextController,
                     decoration: InputDecoration(
                       hintText: 'Email',
+                      hintStyle: TextStyle(color: kTextFieldHintTextColor),
                       prefixIcon: Icon(
                         Icons.email,
                         color: Color(0xffffffff),
@@ -387,7 +395,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     FormField(
                       builder: (state) {
                         return Checkbox(
-                          activeColor: Color(0xffD0BCFF),
+                          activeColor: kSecondaryColor,
                           value: isChecked,
                           onChanged: (value) {
                             // isChecked = value!;
@@ -435,7 +443,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           text: 'Privacy Policy',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Color(0xffD0BCFF),
+                              color: kSecondaryColor,
                               decoration: TextDecoration.underline),
                           recognizer: new TapGestureRecognizer()
                             ..onTap = () => _launchUrl(
@@ -452,7 +460,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           text: 'Event Terms.',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Color(0xffD0BCFF),
+                              color: kSecondaryColor,
                               decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () => _launchUrl1(
@@ -538,7 +546,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                       child: Text('Save and Continue'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff7C2FEB),
+                        backgroundColor: kPrimaryColor,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
                       ),

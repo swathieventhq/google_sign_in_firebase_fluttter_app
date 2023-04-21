@@ -7,6 +7,8 @@ import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/botto
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/utilities/profile_image_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../constants.dart';
+
 class ProfileView extends StatefulWidget {
  ProfileView({
    required this.firstName,
@@ -173,7 +175,7 @@ class _ProfileViewState extends State<ProfileView> {
                                   builder: (context) => EditProfilePage(),
                                 ));
                           },
-                          icon: Icon(Icons.edit),
+                          icon: Icon(Icons.edit,color: kEditIconColor),
                         ),
                       ],
                     ),

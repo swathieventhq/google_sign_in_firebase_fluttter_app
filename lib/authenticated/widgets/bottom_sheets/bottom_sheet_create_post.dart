@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../constants.dart';
+
 class BottomSheetCreatePost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 194,
-      color: Color(0xff151318),
+      color: kBottomSheetContainer1Color,
       child: Container(
         height: 194,
         //  height: 100,
         decoration: BoxDecoration(
-          color: Colors.black87,
+          color: kBottomSheetContainer2Color,
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(20),
             topLeft: Radius.circular(20),

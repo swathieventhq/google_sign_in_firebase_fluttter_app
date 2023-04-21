@@ -7,6 +7,7 @@ import 'package:google_sign_in_firebase_fluttter_app/authenticated/utilities/tab
 //import 'package:google_sign_in_firebase_fluttter_app/utilities/profile_view.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/utilities/profile_view.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/search_member_list.dart';
+import 'package:google_sign_in_firebase_fluttter_app/constants.dart';
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -21,8 +22,10 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kScaffoldColor,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: kAppBarColor,
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(1),
           child: Divider(
@@ -43,7 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
             width: double.infinity,
             height: 31,
             decoration: BoxDecoration(
-              color: Color(0xff514C5F),
+              color: kSearchBarColor,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Padding(
@@ -54,14 +57,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     Icon(
                       Icons.search,
                       size: 18,
-                      color: Color(0xffCAC4D0),
+                      color: kSearchBarTextColor,
                     ),
                     SizedBox(
                       width: 6,
                     ),
                     Text(
                       "Search",
-                      style: TextStyle(color: Color(0xffCAC4D0), fontSize: 14),
+                      style: TextStyle(color: kSearchBarTextColor, fontSize: 14),
                     ),
                   ],
                 ),
@@ -69,7 +72,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ),
-        backgroundColor: Colors.black,
       ),
       body: DefaultTabController(
         length: 3,
@@ -106,9 +108,9 @@ class _ProfilePageState extends State<ProfilePage> {
             children: <Widget>[
               TabBar(
                 indicatorSize: TabBarIndicatorSize.label,
-                labelColor: Color(0xffD0BCFF),
-                unselectedLabelColor: Color(0xffCAC4D0),
-                indicatorColor: Color(0xffD0BCFF),
+                labelColor: kSecondaryColor,
+                unselectedLabelColor: kUnselectedLabelColor,
+                indicatorColor: kSecondaryColor,
                 tabs: [
                   Tab(
                     text: "Posts",

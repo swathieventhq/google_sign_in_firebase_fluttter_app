@@ -7,7 +7,7 @@ class EventList {
   final String eventType;
   final String eventHost;
   final String eventDuration;
-  final String attendees;
+  final String registrants;
 
   EventList({
     required this.eventTime,
@@ -17,7 +17,7 @@ class EventList {
     required this.eventType,
     required this.eventHost,
     required this.eventDuration,
-   required this.attendees,
+   required this.registrants,
   });
 }
 
@@ -25,12 +25,12 @@ List<EventList> eventDetails = [
  EventList(
 eventTime: 'Today, 2:00 PM',
 image: 'assets/red.png',
-eventName: 'Design Thinking Group Design Thinking Group',
-eventDate: 'Tue, Feb 28 - Wed, Mar 1, 2023 ',
-eventType: 'Online',
+eventName: 'SaaS Insider India 2023',
+eventDate: 'Tue, july 20 - Wed, july 21, 2023 ',
+eventType: 'In Person',
 eventHost: '- Event By SaaS Insider',
 eventDuration: '2:00 - 2:30 PM IST',
-attendees : '198 attendees',
+registrants : '198 registrants',
  )
 ];
 

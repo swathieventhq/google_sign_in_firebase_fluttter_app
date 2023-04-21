@@ -23,7 +23,10 @@ class _SearchPageState extends State<SearchPage> {
         appBar: AppBar(
           bottom: const PreferredSize(
             preferredSize: Size.fromHeight(1),
-            child: Divider(thickness: 1.0,color: Color(0xFFFFFFFF),),
+            child: Divider(
+              thickness: 1.0,
+              color: Color(0xFFFFFFFF),
+            ),
           ),
           backgroundColor: Colors.black,
           title: SizedBox(
@@ -36,17 +39,25 @@ class _SearchPageState extends State<SearchPage> {
               decoration: InputDecoration(
                 //focusColor: Color(0XFFD0BCFF),
 
-                  focusedBorder:  OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: BorderSide(
-                      color: Color(0XFFD0BCFF),
-                    ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(
+                    color: Color(0XFFD0BCFF),
                   ),
+                ),
                 filled: true,
                 fillColor: Color(0xff514C5F),
-                prefixIcon: const Icon(Icons.search,size: 18,color: Color(0XFFD0BCFF),),
+                prefixIcon: const Icon(
+                  Icons.search,
+                  size: 18,
+                  color: Color(0XFFD0BCFF),
+                ),
                 suffixIcon: IconButton(
-                  icon: const Icon(Icons.clear,size: 16,color: Color(0XFFD0BCFF),),
+                  icon: const Icon(
+                    Icons.clear,
+                    size: 16,
+                    color: Color(0XFFD0BCFF),
+                  ),
                   onPressed: () {
                     searchController.clear();
                   },
@@ -74,18 +85,17 @@ class _SearchPageState extends State<SearchPage> {
                   return Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: ListTile(
-                      leading: Image.asset(
-                        member.assetImage,
-                        fit: BoxFit.cover,
-                        width: 50,
-                        height: 50,
+                      leading: CircleAvatar(
+                        backgroundImage: AssetImage(
+                          member.assetImage,
+                        ),
                       ),
                       title: Text(member.name),
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => ProfilePage(),
-                             // NewProfilePage(),
+                          // NewProfilePage(),
                         ),
                       ),
                     ),

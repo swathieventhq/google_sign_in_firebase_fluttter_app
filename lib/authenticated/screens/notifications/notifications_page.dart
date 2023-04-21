@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/notofications_object_list.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/bottom_sheet_events_page.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/bottom_sheet_notifications_page.dart';
+
+import '../../../constants.dart';
 class NotificationsPage extends StatefulWidget {
    NotificationsPage({
   required this.notifications,
@@ -15,7 +18,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
   @override
   Widget build(BuildContext context) {
    return Card(
-          color: Color(0xFF151318),
+          color: kCardColor,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -57,7 +60,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                       ),
                     ),
                    Column(children: [
-                     Text(widget.notifications.time),
+                     Text(widget.notifications.time,style: TextStyle(color: kNotificationTimeColor)),
                      Container(
                        child: IconButton(
                          onPressed: () {
@@ -66,11 +69,11 @@ class _NotificationsPageState extends State<NotificationsPage> {
                              enableDrag: true,
                              isScrollControlled: false,
                              context: context,
-                             builder: (context) => BottomSheetEventsPage(),
+                             builder: (context) => BottomSheetNotificationsPage(),
                            );
                          },
                          icon: Icon(
-                           Icons.more_horiz,
+                           Icons.more_horiz,color: kMoreHorizColor,
                          ),
                        ),
                      ),
