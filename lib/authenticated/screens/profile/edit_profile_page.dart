@@ -219,7 +219,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
                 Text(
                   'Eg : https://www.linkedin.com/in/saasinsider',
-                  style: TextStyle(color: Color(0xff969696), fontSize: 12),
+                  style: TextStyle(color: kTextFieldHintTextColor, fontSize: 12),
                 ),
                 SizedBox(
                   height: 18,

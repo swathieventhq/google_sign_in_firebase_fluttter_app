@@ -61,11 +61,11 @@ class _ProfileViewState extends State<ProfileView> {
                         padding: const EdgeInsets.only(bottom: 6.0),
                         child: Row(
                           children: [
-                            Text(widget.firstName, style: TextStyle(fontSize: 16.0)),
+                            Text(user.firstName, style: TextStyle(fontSize: 16.0)),
                             SizedBox(
                               width:4,
                             ),
-                            Text(widget.lastName, style: TextStyle(fontSize: 16.0)),
+                            Text(user.lastName, style: TextStyle(fontSize: 16.0)),
                             SizedBox(
                               width: 8,
                             ),
@@ -88,7 +88,7 @@ class _ProfileViewState extends State<ProfileView> {
                             SizedBox(
                               width: 6,
                             ),
-                            Text(widget.jobFunction,
+                            Text(user.jobFunction,
                                 style: TextStyle(fontSize: 14.0)),
                             SizedBox(
                               width: 8,
@@ -97,7 +97,7 @@ class _ProfileViewState extends State<ProfileView> {
                             SizedBox(
                               width: 8,
                             ),
-                            Text(widget.companyName,
+                            Text(user.companyName,
                                 style: TextStyle(fontSize: 14.0)),
                           ],
                         ),
@@ -119,7 +119,7 @@ class _ProfileViewState extends State<ProfileView> {
                               height: 10,
                             ),
                             Text(
-                              widget.linkedInURL,
+                              user.linkedIn,
                               style: TextStyle(
                                   fontSize: 14.0, color: Color(0xffD0BCFF)),
                             ),

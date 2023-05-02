@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/search_member_list.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/members/members_page.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/profile/profile_page.dart';
+
+import '../../constants.dart';
 //import 'package:google_sign_in_firebase_fluttter_app/screens/new_profile_page.dart';
 
 class SearchPage extends StatefulWidget {
@@ -19,44 +21,44 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: kScaffoldColor,
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          backgroundColor: kAppBarColor,
           bottom: const PreferredSize(
             preferredSize: Size.fromHeight(1),
             child: Divider(
               thickness: 1.0,
-              color: Color(0xFFFFFFFF),
+              color: kAppBarDividerColor,
             ),
           ),
-          backgroundColor: Colors.black,
           title: SizedBox(
             width: double.infinity,
             height: 31,
             child: TextField(
               onChanged: searchMember,
               controller: searchController,
-              cursorColor: Color(0XFFD0BCFF),
+              cursorColor: kSecondaryColor,
               decoration: InputDecoration(
-                //focusColor: Color(0XFFD0BCFF),
-
+                focusColor: kSecondaryColor,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide(
-                    color: Color(0XFFD0BCFF),
+                    color: kSecondaryColor,
                   ),
                 ),
                 filled: true,
-                fillColor: Color(0xff514C5F),
+             //   fillColor: Color(0xff514C5F),
                 prefixIcon: const Icon(
                   Icons.search,
                   size: 18,
-                  color: Color(0XFFD0BCFF),
+                  color: kSecondaryColor,
                 ),
                 suffixIcon: IconButton(
                   icon: const Icon(
                     Icons.clear,
                     size: 16,
-                    color: Color(0XFFD0BCFF),
+                    color: kSecondaryColor,
                   ),
                   onPressed: () {
                     searchController.clear();
@@ -67,7 +69,7 @@ class _SearchPageState extends State<SearchPage> {
                 // border: InputBorder.none,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
-                  borderSide: const BorderSide(color: Colors.blue),
+                 // borderSide: const BorderSide(color: Colors.blue),
                 ),
               ),
             ),

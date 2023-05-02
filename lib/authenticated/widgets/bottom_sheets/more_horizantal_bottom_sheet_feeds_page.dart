@@ -1,9 +1,18 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/user/demo_user.dart';
+import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
 
 import '../../../constants.dart';
 
 class MoreHorizantalBottomSheet extends StatelessWidget {
+  // final User user;
+  // final String removeActivityById;
+  // MoreHorizantalBottomSheet({required this.user,required this.removeActivityById});
+
+//   Future<void> delete() async {
+//     await user.removeActivityById('4895c58e-df56-11ed-8296-0227ff387cbc');
+// }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,6 +97,20 @@ class MoreHorizantalBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
+            // Expanded(
+            //   child: TextButton(
+            //     onPressed: (){
+            //       delete();
+            //     },
+            //     child: Row(
+            //       children: [
+            //         Icon(Icons.flag,size:16.0,color: Colors.white,),
+            //         SizedBox(width: 8,),
+            //         Expanded(child: Text('Delete Post',style: TextStyle(color: Colors.white,fontSize: 14),)),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

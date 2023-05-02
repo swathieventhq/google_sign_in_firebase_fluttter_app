@@ -3,10 +3,12 @@ import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
 class DemoUser {
   final User user;
   final Token token;
+  final removeActivityByID;
 
   const DemoUser({
     required this.user,
     required this.token,
+    required this.removeActivityByID,
   });
 }
 
@@ -27,6 +29,7 @@ const demoUsers = [
     ),
     token: Token(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3dhdGhpY2dvd2RhIn0.9l1qcOaeWHEyCtJ57kfuqWHCFdLQKlZDwSvb4-rOuRQ'),
+    removeActivityByID: 2,
   ),
 
   DemoUser(
@@ -45,6 +48,7 @@ const demoUsers = [
     token: Token(
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiaGFyaXNoIn0.WYYuhdSFbhOwY8hPKgj3EM-d5slgHME4rK0cFa7cBnM',
     ),
+    removeActivityByID: 1,
   ),
 
   // DemoUser(
@@ -74,10 +78,12 @@ const demoUsers = [
         'profile_image':
             'https://media.licdn.com/dms/image/D5603AQE3wpv0vhJscg/profile-displayphoto-shrink_200_200/0/1672222717639?e=1687392000&v=beta&t=Ql9-T5nQTLdijH5XFSPAPchXY9JQSYeMlXVGAm-jlrQ',
         'posted_in': 'SaaS Insider',
+        'remove_activity': 1,
       },
     ),
     token: Token(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYWthc2gifQ.JCnFqEFMe4Q_EXlOalHDb_-LfmCvlXWY3UX-4zW5BXk'),
+    removeActivityByID: 3,
   ),
 
   DemoUser(
@@ -95,6 +101,7 @@ const demoUsers = [
     ),
     token: Token(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoicHJhamFrdGhhY2hhdWRoYXJpIn0.VR2ygQ9JbcZ9ZVfa-kFOvux36PnYE4B3Mmhk4b4AafM'),
+    removeActivityByID: 4,
   ),
 
   DemoUser(
@@ -112,6 +119,7 @@ const demoUsers = [
     ),
     token: Token(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZXZlbnRocSJ9.bmnT-aS-louf-EhFimguFiM2D3B8Es3ko5ZU5mfbXfU'),
+    removeActivityByID: 5,
   ),
 
   DemoUser(
@@ -129,6 +137,7 @@ const demoUsers = [
     ),
     token: Token(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic2Fhc2luc2lkZXIifQ.7y5wkw8Tho0hnXCC_Zck4M3WqRBjaRKBFVD1l2h7c_o'),
+    removeActivityByID: 6,
   ),
 
   DemoUser(
@@ -146,6 +155,7 @@ const demoUsers = [
     ),
     token: Token(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGhhcnNoYW4ifQ.4WRZG3V4ZFQli2C_Jcv4K-Pp8gHE6juBL2jne20K5ok'),
+    removeActivityByID: 7,
   ),
 
   DemoUser(
@@ -163,6 +173,7 @@ const demoUsers = [
     ),
     token: Token(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiY2hhbWVsaSJ9.gpQKECC1pb4svWGK3MJQdqMQV9e9EEKsLhw4KsrcbHY'),
+    removeActivityByID: 8,
   ),
 ];
 

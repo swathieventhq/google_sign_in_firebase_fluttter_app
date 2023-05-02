@@ -24,6 +24,9 @@ class ListActivityItem extends StatefulWidget {
   State<ListActivityItem> createState() => _ListActivityItemState();
 }
 
+//await user.removeActivityById('ACTIVITY_ID');
+
+
 class _ListActivityItemState extends State<ListActivityItem> {
   bool isSwitched = false;
 
@@ -34,6 +37,7 @@ class _ListActivityItemState extends State<ListActivityItem> {
     final reactionCounts = widget.activity.reactionCounts;
     final ownReactions = widget.activity.ownReactions;
     final isLikedByUser = (ownReactions?['like']?.length ?? 0) > 0;
+    // final removeActivityByID = widget.removeActivityByID.actor;
     return Card(
       elevation: 6,
       color: kCardColor,

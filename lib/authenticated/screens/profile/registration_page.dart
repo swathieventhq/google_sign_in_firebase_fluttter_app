@@ -4,6 +4,7 @@ import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/membe
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/events/events_listview_builder.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/members/members_page2.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/utilities/profile_view.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
@@ -74,6 +75,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
     "Customer Success",
     "Founder",
     "Investor",
+    "Developer",
     "CXO",
     "Product",
     "Engineering",
@@ -505,25 +507,7 @@ backgroundColor: kAppBarColor,
                           isChecked! ? _doSomething : null;
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                                builder: (context) => ProfileView(
-                                      firstName:
-                                          firstNameController.text.toString(),
-                                      lastName:
-                                          lastNameController.text.toString(),
-                                      email:
-                                          emailTextController.text.toString(),
-                                      phone: phoneController.text.toString(),
-                                      companyName:
-                                          companyNameController.text.toString(),
-                                      jobRole: jobRoleSelectedValue.toString(),
-                                      jobFunction:
-                                          jobFunctionSelectedValue.toString(),
-                                      linkedInURL:
-                                          linkedInController.text.toString(),
-                                    )),
-                            (route) => false,
-                          );
-                          //           MembersPage2(
+                          //       builder: (context) => ProfileView(
                           //             firstName:
                           //                 firstNameController.text.toString(),
                           //             lastName:
@@ -538,9 +522,27 @@ backgroundColor: kAppBarColor,
                           //                 jobFunctionSelectedValue.toString(),
                           //             linkedInURL:
                           //                 linkedInController.text.toString(),
-                          //       )),
+                          //           )),
                           //   (route) => false,
                           // );
+                                builder: (context) => MembersPage(
+                                      firstName:
+                                          firstNameController.text.toString(),
+                                      lastName:
+                                          lastNameController.text.toString(),
+                                      email:
+                                          emailTextController.text.toString(),
+                                      phone: phoneController.text.toString(),
+                                      companyName:
+                                          companyNameController.text.toString(),
+                                      jobRole: jobRoleSelectedValue.toString(),
+                                      jobFunction:
+                                          jobFunctionSelectedValue.toString(),
+                                      linkedInURL:
+                                          linkedInController.text.toString(),
+                                )),
+                            (route) => false,
+                          );
                         }
                       },
 

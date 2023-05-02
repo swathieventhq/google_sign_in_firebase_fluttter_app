@@ -56,6 +56,9 @@ dependencies:
   font_awesome_flutter: ^10.2.0
 
 
+#stream_feed: ^0.6.0+2
+
+
 
 dev_dependencies:
   lints: ^2.0.0

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/user/demo_user.dart';
+import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/feeds/stream_feeds.dart';
 
 import '../../../constants.dart';
+
+//import 'package:stream_feed/stream_feed.dart';
+
 
 /// A page to compose a new [Activity]/post.
 ///
@@ -13,7 +18,6 @@ import '../../../constants.dart';
 ///
 /// [More information](https://getstream.io/activity-feeds/docs/flutter-dart/adding_activities/?language=dart) on activities.
 class ComposeActivityPage extends StatefulWidget {
-  const ComposeActivityPage({Key? key}) : super(key: key);
 
   @override
   State<ComposeActivityPage> createState() => _ComposeActivityPageState();
@@ -29,15 +33,18 @@ class _ComposeActivityPageState extends State<ComposeActivityPage> {
   }
 
   /// "Post" a new activity to the "user" feed group.
-  Future<void> post() async {
+ Future<void> post() async {
     final uploadController = context.feedUploadController;
     final media = uploadController.getMediaUris()?.toExtraData();
+   // media!['foriegn_id'] = '';
     if (_textEditingController.text.isNotEmpty) {
       await context.feedBloc.onAddActivity(
         feedGroup: 'user',
         verb: 'post',
         object: _textEditingController.text,
+        time: DateTime.now(),
         data: media,
+        //foreign_id : '123',
       );
       uploadController.clear();
       Navigator.pop(context);
@@ -46,6 +53,8 @@ class _ComposeActivityPageState extends State<ComposeActivityPage> {
           const SnackBar(content: Text('Cannot post with no message')));
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -147,3 +156,10 @@ class _ComposeActivityPageState extends State<ComposeActivityPage> {
     );
   }
 }
+
+
+
+// Future<void> delete() async {
+//   await feed.deleteActivity('<ACTIVITY_ID>');
+// }
+

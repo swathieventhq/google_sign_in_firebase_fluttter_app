@@ -98,7 +98,7 @@ class _TimelinePageState extends State<TimelinePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute<void>(
-                    builder: (context) => const ComposeActivityPage()),
+                    builder: (context) =>  ComposeActivityPage()),
               );
             },
             tooltip: 'Add Activity',

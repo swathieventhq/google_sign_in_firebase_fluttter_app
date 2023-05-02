@@ -92,7 +92,7 @@ class _PostsTabState extends State<PostsTab> {
             Navigator.push(
               context,
               MaterialPageRoute<void>(
-                  builder: (context) => const ComposeActivityPage()),
+                  builder: (context) =>  ComposeActivityPage()),
             );
           },
           tooltip: 'Add Activity',

@@ -11,6 +11,7 @@ import 'package:google_sign_in_firebase_fluttter_app/authenticated/screens/event
 
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/models/search_member_list.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/utilities/tabs/speakers_tab.dart';
+import 'package:google_sign_in_firebase_fluttter_app/constants.dart';
 class EventDetailsPage extends StatefulWidget {
   @override
   State<EventDetailsPage> createState() => _EventDetailsPageState();
@@ -25,7 +26,7 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0XFF151318),
+        backgroundColor: kAppBarColor,
         ),
       //  resizeToAvoidBottomInset: false,
         // appBar: AppBar(
@@ -103,9 +104,9 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
               children: <Widget>[
                 TabBar(
                   indicatorSize: TabBarIndicatorSize.label,
-                  labelColor: Color(0xffD0BCFF),
-                  unselectedLabelColor: Color(0xffCAC4D0),
-                  indicatorColor: Color(0xffD0BCFF),
+                  labelColor: kSecondaryColor,
+                  unselectedLabelColor: kUnselectedLabelColor,
+                  indicatorColor: kSecondaryColor,
                   tabs: [
                     Tab(
                       text: "Event Details",

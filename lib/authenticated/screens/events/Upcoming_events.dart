@@ -50,7 +50,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                               Text(
                                 widget.items.eventName,
                                 style: TextStyle(
-                                  color: Colors.white,
+                                 // color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -84,7 +84,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                                 children: [
                                   Icon(
                                     Icons.videocam_rounded,
-                                    color: Color(0XFF7A7A7A),
+                                    color: kEventsTypeHostColor,
                                     size: 14.0,
                                   ),
                                   SizedBox(width: 4.0,),
@@ -125,6 +125,7 @@ class _UpcomingEventsState extends State<UpcomingEvents> {
                             },
                             icon: Icon(
                               Icons.more_horiz,
+                               color: kMoreHorizColor,
                             ),
                           ),
                         ),

@@ -21,6 +21,8 @@ const kBottomNavigationSelectedItemColor = Color(0XFFCAC4D0);
 const kBottomNavigationUnselectedItemColor = Color(0XFF7A7A7A);
 const kBottomNavigationBgColor = Color(0XFF151318);
 
+const kChatIconColor = Color(0XFFBDBDBD);
+
 const kFeedsDividerColor = Color(0XFF514C5F);
 const kFeedUsernameColor = Color(0XFFFAFAFA);
 const kFeedUserHandleColor = Color(0XFFBFBFBF);
@@ -44,6 +46,8 @@ const kCreatePostTextAndIconsColor = Color(0XFFBFBFBF);
 
 const kEventsDateTimeColor = Color(0XFFE1E1E1);
 const kEventsTypeHostColor = Color(0XFF7A7A7A);
+
+
 
 
 

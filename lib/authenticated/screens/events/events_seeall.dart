@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in_firebase_fluttter_app/authenticated/widgets/bottom_sheets/bottom_sheet_events_page.dart';
 
+import '../../../constants.dart';
+
 class SeeAllEvents extends StatelessWidget {
   const SeeAllEvents({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return  Card(
-      color: Color(0xFF151318),
+      color: kCardColor,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -36,7 +38,7 @@ class SeeAllEvents extends StatelessWidget {
                       Text(
                         'SaaStr Europa',
                         style: TextStyle(
-                          color: Colors.white,
+                         // color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
@@ -48,7 +50,7 @@ class SeeAllEvents extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.calendar_month_rounded,
-                            color: Color(0XFFE1E1E1),
+                            color: kEventsDateTimeColor,
                             size: 14.0,
                           ),
                           SizedBox(width: 4.0,),
@@ -56,7 +58,7 @@ class SeeAllEvents extends StatelessWidget {
                             'tue, Jun 6 - Wed, jun 7, 2023 ',
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                              color: Color(0XFFE1E1E1),
+                              color: kEventsDateTimeColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
                             ),
@@ -70,7 +72,7 @@ class SeeAllEvents extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.videocam_rounded,
-                            color: Color(0XFF7A7A7A),
+                            color: kEventsTypeHostColor,
                             size: 14.0,
                           ),
                           SizedBox(width: 4.0,),
@@ -78,7 +80,7 @@ class SeeAllEvents extends StatelessWidget {
                             'In Person',
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                              color: Color(0XFF7A7A7A),
+                              color: kEventsTypeHostColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 14.0,
                             ),
@@ -88,7 +90,7 @@ class SeeAllEvents extends StatelessWidget {
                             'By SaaStr',
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                              color: Color(0XFF7A7A7A),
+                              color: kEventsTypeHostColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 14.0,
                             ),
@@ -111,6 +113,7 @@ class SeeAllEvents extends StatelessWidget {
                     },
                     icon: Icon(
                       Icons.more_horiz,
+                      color: kMoreHorizColor,
                     ),
                   ),
                 ),
